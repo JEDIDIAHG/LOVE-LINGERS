@@ -61,6 +61,22 @@
             const question = document.getElementById('question').innerText;
             const answer = document.getElementById('answerBox').value;
             const myEmail = "shope2860@gmail.com"; 
+            // 1. Check if the user actually typed something
+    if (answer.trim() === "" || question === "Click the button for this week's talk...") {
+        alert("Please generate a prompt and type an answer before sending!");
+        return;
+    }
+
+    // 2. Format the email content
+    const subject = encodeURIComponent("HEART'S TALK Response");
+    const body = encodeURIComponent("Question: " + question + "\n\nAnswer: " + answer);
+    
+    // 3. Trigger the email app
+    window.location.assign(`mailto:${myEmail}?subject=${subject}&body=${body}`);
+
+    // 4. Clear the box so it's ready for next time
+    document.getElementById('answerBox').value = "";
+}
 
             if (answer.trim() === "" || question === "Click the button for this week's talk...") {
                 alert("Please generate a prompt and type an answer before sending!");
