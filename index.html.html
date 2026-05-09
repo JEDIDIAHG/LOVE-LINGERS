@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>THE HEART'S TALK</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background-color: #f4f1ea; padding-top: 50px; }
+        .container { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); width: 80%; max-width: 500px; }
+        h1 { color: #8b0000; }
+        #question { font-size: 1.5rem; margin: 20px; min-height: 60px; color: #333; }
+        
+        textarea {
+            width: 90%;
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px solid #8b0000;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: none;
+        }
+
+        button { background-color: #8b0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-top: 15px; }
+        button:hover { background-color: #a00000; }
+        .send-btn { background-color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>❤️ THE HEART'S TALK</h1>
+        <p>A RANDOM PROMPT FOR I AND MY LOVE</p>
+        
+        <div id="question">Click the button for this week's talk...</div>
+        
+        <button onclick="getQuestion()">Generate Prompt</button>
+        
+        <textarea id="answerBox" placeholder="Type your heart's talk here..." rows="4"></textarea>
+        
+        <br>
+        <button class="send-btn" onclick="saveAnswer()">Send to Me</button>
+    </div>
+
+    <script>
+        const prompts = [
+            "What is one thing I did this week that made you feel loved?",
+            "If we could travel anywhere next holidays, where would we go?",
+            "What is a dream you have that you haven't told me yet?",
+            "What's one habit of mine that always makes you smile?",
+            "How can I better support your goals this month?",
+            "What's a song that reminds you of us and why?",
+            "What are some things you want to achieve together in the next year?",
+            "Mention some things I do that you dislike"
+        ];
+
+        function getQuestion() {
+            const randomIndex = Math.floor(Math.random() * prompts.length);
+            document.getElementById('question').innerText = prompts[randomIndex];
+        }
+
+        function saveAnswer() {
+            const question = document.getElementById('question').innerText;
+            const answer = document.getElementById('answerBox').value;
+            const myEmail = "shope2860@gmail.com"; 
+
+            if (answer.trim() === "" || question === "Click the button for this week's talk...") {
+                alert("Please generate a prompt and type an answer before sending!");
+                return;
+            }
+
+            const subject = encodeURIComponent("HEART'S TALK Response");
+            const body = encodeURIComponent("Question: " + question + "\n\nAnswer: " + answer);
+            
+            window.location.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+
+            document.getElementById('answerBox').value = "";
+        }
+    </script>
+
+</body>
+</html>
