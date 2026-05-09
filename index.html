@@ -3,14 +3,16 @@
 <head>
     <title>THE HEART'S TALK</title>
     <style>
-        body { font-family: sans-serif; text-align: center; background-color: #f4f1ea; padding-top: 50px; }
+        body { 
+            font-family: sans-serif; 
+            text-align: center; 
+            background: linear-gradient(135deg, #f4f1ea 0%, #ecd5d5 100%); 
+            padding-top: 50px; 
+            min-height: 100vh;
+        }
         .container { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); width: 80%; max-width: 500px; }
         h1 { color: #8b0000; }
         #question { font-size: 1.5rem; margin: 20px; min-height: 60px; color: #333; }
-        body { 
-    background: linear-gradient(135deg, #f4f1ea 0%, #ecd5d5 100%);
-    /* This adds a soft, romantic dual-tone light effect */
-}
         
         textarea {
             width: 90%;
@@ -65,33 +67,21 @@
             const question = document.getElementById('question').innerText;
             const answer = document.getElementById('answerBox').value;
             const myEmail = "shope2860@gmail.com"; 
-            // 1. Check if the user actually typed something
-    if (answer.trim() === "" || question === "Click the button for this week's talk...") {
-        alert("Please generate a prompt and type an answer before sending!");
-        return;
-    }
 
-    // 2. Format the email content
-    const subject = encodeURIComponent("HEART'S TALK Response");
-    const body = encodeURIComponent("Question: " + question + "\n\nAnswer: " + answer);
-    
-    // 3. Trigger the email app
-    window.location.assign(`mailto:${myEmail}?subject=${subject}&body=${body}`);
-
-    // 4. Clear the box so it's ready for next time
-    document.getElementById('answerBox').value = "";
-}
-
+            // 1. Check if input is valid
             if (answer.trim() === "" || question === "Click the button for this week's talk...") {
                 alert("Please generate a prompt and type an answer before sending!");
                 return;
             }
 
+            // 2. Format content
             const subject = encodeURIComponent("HEART'S TALK Response");
             const body = encodeURIComponent("Question: " + question + "\n\nAnswer: " + answer);
             
-            window.location.href = `mailto:${myEmail}?subject=${subject}&body=${body}`;
+            // 3. Open mail app
+            window.location.assign(`mailto:${myEmail}?subject=${subject}&body=${body}`);
 
+            // 4. Clear the box
             document.getElementById('answerBox').value = "";
         }
     </script>
