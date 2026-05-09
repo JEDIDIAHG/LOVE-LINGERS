@@ -2,33 +2,64 @@
 <html>
 <head>
     <title>THE HEART'S TALK</title>
-    <style>
-        body { 
-            font-family: sans-serif; 
-            text-align: center; 
-            background: linear-gradient(135deg, #f4f1ea 0%, #ecd5d5 100%); 
-            padding-top: 50px; 
-            min-height: 100vh;
-        }
-        .container { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); width: 80%; max-width: 500px; }
-        h1 { color: #8b0000; }
-        #question { font-size: 1.5rem; margin: 20px; min-height: 60px; color: #333; }
-        
-        textarea {
-            width: 90%;
-            margin-top: 20px;
-            padding: 10px;
-            border: 2px solid #8b0000;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            resize: none;
-        }
+   <style>
+    body { 
+        font-family: sans-serif; 
+        text-align: center; 
+        /* This creates the dark, glowing red background from your DESIGN.JPG */
+        background: radial-gradient(circle at center, #3d0000 0%, #0a0a0a 100%);
+        margin: 0;
+        padding-top: 50px; 
+        min-height: 100vh;
+        color: #eee;
+    }
 
-        button { background-color: #8b0000; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-top: 15px; }
-        button:hover { background-color: #a00000; }
-        .send-btn { background-color: #555; }
-    </style>
+    .container { 
+        background: rgba(20, 20, 20, 0.9); /* Darker container to match the theme */
+        padding: 30px; 
+        border-radius: 15px; 
+        display: inline-block; 
+        box-shadow: 0px 0px 20px rgba(255, 0, 0, 0.2); /* Soft red glow around the box */
+        width: 80%; 
+        max-width: 500px;
+        border: 1px solid #444;
+    }
+
+    h1 { color: #ff3333; text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); }
+    #question { font-size: 1.5rem; margin: 20px; min-height: 60px; color: #ddd; }
+    
+    textarea {
+        width: 90%;
+        margin-top: 20px;
+        padding: 10px;
+        border: 2px solid #8b0000;
+        border-radius: 8px;
+        background: #1a1a1a;
+        color: white;
+        font-family: inherit;
+        font-size: 1rem;
+        resize: none;
+    }
+
+    button { 
+        background-color: #8b0000; 
+        color: white; 
+        border: none; 
+        padding: 10px 20px; 
+        border-radius: 5px; 
+        cursor: pointer; 
+        font-size: 1rem; 
+        margin-top: 15px;
+        transition: 0.3s;
+    }
+
+    button:hover { 
+        background-color: #ff0000; 
+        box-shadow: 0 0 15px #ff0000; 
+    }
+
+    .send-btn { background-color: #333; border: 1px solid #555; }
+</style>
 </head>
 <body>
 
